@@ -12,8 +12,13 @@
 
 #![no_std]
 
+#[cfg(feature = "std")]
+extern crate std;
+
 use embedded_hal as hal;
 
+#[cfg(feature = "std")]
+pub mod hosted;
 pub mod prerendered;
 
 use hal::spi::{FullDuplex, Mode, Phase, Polarity};
