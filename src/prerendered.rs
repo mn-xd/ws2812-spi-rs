@@ -36,7 +36,7 @@ pub struct Ws2812<'a, SPI, DEVICE = devices::Ws2812> {
 
 impl<'a, SPI, E> Ws2812<'a, SPI>
 where
-    SPI: Write<u8, Error = E>,
+    SPI: SpiBusWrite<u8, Error = E>,
 {
     /// Use ws2812 devices via spi
     ///
@@ -61,7 +61,7 @@ where
 
 impl<'a, SPI, E> Ws2812<'a, SPI, devices::Sk6812w>
 where
-    SPI: Write<u8, Error = E>,
+    SPI: SpiBusWrite<u8, Error = E>,
 {
     /// Use sk6812w devices via spi
     ///
@@ -88,7 +88,7 @@ where
 
 impl<'a, SPI, D, E> Ws2812<'a, SPI, D>
 where
-    SPI: Write<u8, Error = E>,
+    SPI: SpiBusWrite<u8, Error = E>,
 {
     /// Write a single byte for ws2812 devices
     fn write_byte(&mut self, mut data: u8) {
@@ -124,7 +124,7 @@ where
 
 impl<'a, SPI, E> SmartLedsWrite for Ws2812<'a, SPI>
 where
-    SPI: Write<u8, Error = E>,
+    SPI: SpiBusWrite<u8, Error = E>,
 {
     type Error = E;
     type Color = RGB8;
@@ -148,7 +148,7 @@ where
 
 impl<'a, SPI, E> SmartLedsWrite for Ws2812<'a, SPI, devices::Sk6812w>
 where
-    SPI: Write<u8, Error = E>,
+    SPI: SpiBusWrite<u8, Error = E>,
 {
     type Error = E;
     type Color = RGBW<u8, u8>;
