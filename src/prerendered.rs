@@ -6,7 +6,7 @@
 use embedded_hal as hal;
 
 use hal::spi::{Mode, Phase, Polarity};
-use hal::blocking::spi::Write;
+use hal::spi::SpiBusWrite;
 
 use core::marker::PhantomData;
 
