@@ -17,7 +17,7 @@ use embedded_hal as hal;
 pub mod prerendered;
 
 use hal::spi::{Mode, Phase, Polarity};
-use hal::blocking::spi::Write;
+use hal::spi::SpiBusWrite;
 
 use core::marker::PhantomData;
 
